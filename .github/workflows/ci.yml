@@ -10,7 +10,9 @@ jobs:
   dbt-ci:
     name: dbt tests
     runs-on: ubuntu-latest    
-    
+  env:
+      DBT_PROFILES_DIR: ${{ github.workspace }}/dbt
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -20,9 +22,6 @@ jobs:
         with:
           workload_identity_provider: "projects/452020239246/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
           service_account: "dbt-github-actions@project-b23f2a51-1258-4419-9bd.iam.gserviceaccount.com"
-
-    env:
-      DBT_PROFILES_DIR: ${{ github.workspace }}/dbt
 
       - name: Checkout code
         uses: actions/checkout@v4
