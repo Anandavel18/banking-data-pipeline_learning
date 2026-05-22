@@ -55,6 +55,7 @@ jobs:
           chmod +x Techincal_Exercise/script/*.sh
           dos2unix Techincal_Exercise/script/*.sh
           Techincal_Exercise/script/arch_table_creation_script.sh
+          Techincal_Exercise/script/source_file_creation_1.sh
           Techincal_Exercise/script/source_file_upload_to_gcs_script.sh
           Techincal_Exercise/script/source_files_load_to_arch_table_script.sh
           Techincal_Exercise/script/dbt_all.sh
