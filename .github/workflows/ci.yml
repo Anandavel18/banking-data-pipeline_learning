@@ -34,12 +34,8 @@ jobs:
           python-version: "3.11"
 
        - name: Convert scripts to Unix line endings
-          run: |
-          sudo apt-get update
-          sudo apt-get install -y dos2unix
-          dos2unix Techincal_Exercise/script/*.sh
-          chmod +x Techincal_Exercise/script/*.sh
-
+          run: dos2unix Techincal_Exercise/script/*.sh
+          
        # STEP 1: Create ARCH tables
       - name: Create ARCH tables
         run: bash Techincal_Exercise/script/arch_table_creation_script.sh
