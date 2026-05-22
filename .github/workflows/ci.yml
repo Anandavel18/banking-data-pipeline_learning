@@ -50,6 +50,8 @@ jobs:
 
       - name: Run all scripts
         run: |
+          sudo apt-get update
+          sudo apt-get install -y dos2unix
           chmod +x Techincal_Exercise/script/*.sh
           dos2unix Techincal_Exercise/script/*.sh
           Techincal_Exercise/script/arch_table_creation_script.sh
