@@ -20,9 +20,9 @@ models:
       - name: transaction_type
         tests:
           - accepted_values:
-              values: ['DEBIT', 'CREDIT']
+              values: ['TRANSFER', 'PURCHASE','WITHDRAWAL','PAYMENT']
 
       - name: status
         tests:
           - accepted_values:
-              values: ['SUCCESS', 'FAILED']
+              values: ['SUCCESS','PENDING','FAILED']
