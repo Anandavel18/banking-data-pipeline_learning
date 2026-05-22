@@ -1,0 +1,11 @@
+banking_migration_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: project-b23f2a51-1258-4419-9bd
+      dataset: dbt_default
+      location: europe-west2
+      threads: 4
+
