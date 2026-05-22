@@ -24,15 +24,15 @@ jobs:
         run: pip install dbt-core dbt-postgres
 
       - name: Install dbt dependencies
-        working-directory: dbt
+        working-directory: Technical_Exercise/banking_migration_dbt
         run: dbt deps
 
       - name: Compile dbt project
-        working-directory: dbt
+        working-directory: Techincal_Exercise/banking_migration_dbt
         run: dbt compile
 
       - name: Run dbt tests
-        working-directory: dbt
+        working-directory: Techincal_Exercise/banking_migration_dbt
         run: dbt test
 
 
