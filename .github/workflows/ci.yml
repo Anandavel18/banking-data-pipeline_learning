@@ -33,6 +33,18 @@ jobs:
         with:
           python-version: "3.11"
 
+       # STEP 1: Create ARCH tables
+      - name: Create ARCH tables
+        run: bash arch_table_creation_script.sh
+
+      # STEP 2: Upload files to GCS
+      - name: Upload files to GCS
+        run: bash source_file_upload_to_gcs_script.sh
+
+      #  STEP 3: Load data into ARCH
+      - name: Load data into ARCH tables
+        run: bash source_files_load_to_arch_table_script.sh
+
       - name: Install dbt
         run: pip install dbt-core dbt-bigquery
 
