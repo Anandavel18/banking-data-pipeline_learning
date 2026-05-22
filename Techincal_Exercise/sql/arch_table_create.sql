@@ -47,6 +47,7 @@ CREATE  OR REPLACE TABLE arch_banking.arch_cards (
 
     load_dt TIMESTAMP,
     file_name string,
+    card_id STRING,
     card_number STRING,
     account_number STRING,
     customer_id STRING,
@@ -61,6 +62,7 @@ CREATE  OR REPLACE TABLE arch_banking.arch_accounts (
 
     load_dt TIMESTAMP,
     file_name string,
+    account_id STRING,
     account_number STRING,
     customer_id STRING,
     account_type STRING,
@@ -69,27 +71,4 @@ CREATE  OR REPLACE TABLE arch_banking.arch_accounts (
     status STRING
 )
 PARTITION BY DATE(load_dt)
-CLUSTER BY customer_id;
-
-
-CREATE OR REPLACE TABLE tf_banking.dim_customer (
-    customer_key STRING NOT NULL,                -- PK  --TO_HEX(SHA256(CONCAT(customer_id, '|', CAST(effective_from AS STRING))))
-    customer_id STRING NOT NULL,                -- Natural key
-    first_name STRING NOT NULL,
-    last_name STRING,
-    email STRING,
-    phone STRING,
-    dob DATE,
-    gender STRING,
-    nationality STRING,
-    record_hash STRING NOT NULL,
-    effective_from DATE NOT NULL,
-    effective_to DATE NOT NULL,
-    md_current_flag STRING NOT NULL,
-    insert_date_time TIMESTAMP NOT NULL,
-    insert_process_name STRING NOT NULL,
-    update_date_time TIMESTAMP,
-    update_process_name STRING
-)
-PARTITION BY effective_from
 CLUSTER BY customer_id;

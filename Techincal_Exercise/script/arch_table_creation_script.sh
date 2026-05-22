@@ -9,6 +9,6 @@ echo "Creating customers_arch table..."
 bq query \
 --project_id=${PROJECT_ID} \
 --use_legacy_sql=false \
-< /mnt/c/Users/sanan/OneDrive/Interview/code/table_create.sql
+< /mnt/c/Users/sanan/OneDrive/Interview/banking_migration_project/Techincal_Exercise/sql/arch_table_create.sql
 
 echo "All tables created successfully!"
