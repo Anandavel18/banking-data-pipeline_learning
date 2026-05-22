@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-       id-token: write
-       contents: read
+      id-token: write
+      contents: read
 
     env:
       DBT_PROFILES_DIR: ${{ github.workspace }}/dbt
@@ -33,21 +33,6 @@ jobs:
         with:
           python-version: "3.11"
 
-       - name: Convert scripts to Unix line endings
-          run: dos2unix Techincal_Exercise/script/*.sh
-          
-       # STEP 1: Create ARCH tables
-      - name: Create ARCH tables
-        run: bash Techincal_Exercise/script/arch_table_creation_script.sh
-
-      # STEP 2: Upload files to GCS
-      - name: Upload files to GCS
-        run: bash Techincal_Exercise/script/source_file_upload_to_gcs_script.sh
-
-      #  STEP 3: Load data into ARCH
-      - name: Load data into ARCH tables
-        run: bash Technical_Exercise/script/source_files_load_to_arch_table_script.sh
-
       - name: Install dbt
         run: pip install dbt-core dbt-bigquery
 
@@ -62,6 +47,15 @@ jobs:
       - name: Run dbt tests
         working-directory: Techincal_Exercise/banking_migration_dbt
         run: dbt test
+
+      - name: Run all scripts
+        run: |
+          chmod +x Techincal_Exercise/script/*.sh
+          dos2unix Techincal_Exercise/script/*.sh
+          Techincal_Exercise/script/arch_table_creation_script.sh
+          Techincal_Exercise/script/source_file_upload_to_gcs_script.sh
+          Techincal_Exercise/script/source_files_load_to_arch_table_script.sh
+          Techincal_Exercise/script/dbt_all.sh
 
   terraform-ci:
     name: Terraform validation
