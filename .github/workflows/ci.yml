@@ -9,9 +9,9 @@ on:
 jobs:
   dbt-ci:
     name: dbt tests
-    runs-on: ubuntu-latest   
+    runs-on: ubuntu-latest
 
-  env:
+    env:
       DBT_PROFILES_DIR: ${{ github.workspace }}/dbt
 
     steps:
@@ -23,9 +23,6 @@ jobs:
         with:
           workload_identity_provider: "projects/452020239246/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
           service_account: "dbt-github-actions@project-b23f2a51-1258-4419-9bd.iam.gserviceaccount.com"
-
-      - name: Checkout code
-        uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -46,7 +43,6 @@ jobs:
       - name: Run dbt tests
         working-directory: Techincal_Exercise/banking_migration_dbt
         run: dbt test
-
 
   terraform-ci:
     name: Terraform validation
