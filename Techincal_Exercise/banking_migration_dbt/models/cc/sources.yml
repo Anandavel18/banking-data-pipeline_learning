@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: arch_banking
+    schema: arch_banking
+    tables:
+      - name: customers
+        identifier: arch_customers
+      - name: transactions
+        identifier: arch_transactions
+      - name: accounts
+        identifier: arch_accounts
+      - name: cards
+        identifier: arch_cards

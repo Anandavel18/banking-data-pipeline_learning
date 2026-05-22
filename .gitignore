@@ -1,0 +1,16 @@
+#terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+# dbt
+dbt/target
+dbt/dbt_packages/
+dbt/logs/
+#python
+__pycache__/
+*.pyc
+# OS
+.DS_Store
+.vscode/
+# Logs
+logs/

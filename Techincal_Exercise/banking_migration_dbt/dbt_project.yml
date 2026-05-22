@@ -1,0 +1,83 @@
+name: banking_migration_dbt
+version: '1.0'
+config-version: 2
+
+# =========================
+# PROJECT SETTINGS
+# =========================
+
+profile: banking_migration_dbt
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+require-dbt-version: [">=1.6.0"]
+
+# =========================
+# GLOBAL MODEL CONFIG
+# =========================
+
+models:
+  banking_migration_dbt:
+
+    # ---------------------
+    # CURATED CLEAN LAYER
+    # ---------------------
+    cc:
+      +materialized: table
+      +schema: cc_banking
+      +tags: ["currentcopy"]
+
+
+    # ---------------------
+    # STAGING LAYER
+    # ---------------------
+    stg:
+      +materialized: view
+      +schema: stg_banking
+      +tags: ["staging"]
+
+    # ---------------------
+    # TRANSFORMATION LAYER
+    # ---------------------
+    tf:
+      +materialized: incremental
+      +schema: tf_banking
+      +tags: ["transform"]
+
+    # ---------------------
+    # ANALYTICS / MART LAYER
+    # ---------------------
+    analytics:
+      +materialized: view
+      +schema: banking_analytics
+      +tags: ["mart"]
+
+      +incremental_strategy: merge
+
+
+# =========================
+# SEEDS CONFIG
+# =========================
+
+seeds:
+  banking_migration_dbt:
+    +schema: arch_banking
+    +quote_columns: false
+
+# =========================
+# VARIABLES (optional)
+# =========================
+
+vars:
+  env: dev
+  enable_data_quality_checks: true
