@@ -24,7 +24,7 @@ jobs:
         run: pip install dbt-core dbt-postgres
 
       - name: Install dbt dependencies
-        working-directory: Technical_Exercise/banking_migration_dbt
+        working-directory: Techincal_Exercise/banking_migration_dbt
         run: dbt deps
 
       - name: Compile dbt project
