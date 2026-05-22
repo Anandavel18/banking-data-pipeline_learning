@@ -1,36 +1,36 @@
 # provider "google" {
- #  project = var.project_id
-  # region  = var.region
+#  project = var.project_id
+# region  = var.region
 # }
 
 # -----------------------------------
 # Create GCP Project
 # -----------------------------------
 #resource "google_project" "project" {
- # project_id      = var.project_id
- # name            = var.project_name
-  #billing_account = var.billing_account
+# project_id      = var.project_id
+# name            = var.project_name
+#billing_account = var.billing_account
 
-  #labels = {
- #   environment = "dev"
-  #  managed_by  = "terraform"
- # }
+#labels = {
+#   environment = "dev"
+#  managed_by  = "terraform"
+# }
 #}
 
 # -----------------------------------
 # Enable Required APIs
 # -----------------------------------
 #resource "google_project_service" "services" {
-  #for_each = toset([
-    #"bigquery.googleapis.com",
-   # "storage.googleapis.com",
-   # "iam.googleapis.com"
- # ])
+#for_each = toset([
+#"bigquery.googleapis.com",
+# "storage.googleapis.com",
+# "iam.googleapis.com"
+# ])
 
- # project = google_project.project.project_id
- # service = each.key
+# project = google_project.project.project_id
+# service = each.key
 
- # disable_on_destroy = false
+# disable_on_destroy = false
 #}
 
 # -----------------------------------
