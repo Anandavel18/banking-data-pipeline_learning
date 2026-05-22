@@ -4,7 +4,7 @@
 DATE=$(date +%Y%m%d)
 
 # Local source directory
-SOURCE_PATH="/mnt/c/Users/sanan/OneDrive/Interview/source_files"
+SOURCE_PATH="/mnt/c/Users/sanan/OneDrive/Interview/banking_project_model/source_files"
 echo $SOURCE_PATH
 
 # Input files (dated)
