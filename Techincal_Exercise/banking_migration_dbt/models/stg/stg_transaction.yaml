@@ -9,7 +9,7 @@ models:
           - not_null
           - unique
 
-      - name: customer_key
+      - name: customer_id
         tests:
           - not_null
 
