@@ -23,8 +23,7 @@ jobs:
 
     env:
       DBT_PROFILES_DIR: ${{ github.workspace }}/dbt
-    
-    steps:
+
       - name: Checkout code
         uses: actions/checkout@v4
 
