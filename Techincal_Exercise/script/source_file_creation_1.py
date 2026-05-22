@@ -13,7 +13,7 @@ ACCOUNTS_PER_CUSTOMER = 2
 CARDS_PER_ACCOUNT = 1
 NUM_TRANSACTIONS = 500
 
-SOURCE_PATH = "/mnt/c/Users/sanan/OneDrive/Interview/source_files"
+SOURCE_PATH = "/mnt/c/Users/sanan/OneDrive/Interview/banking_project_model/source_files"
 
 # -----------------------------
 # timestamps (SAFE)
